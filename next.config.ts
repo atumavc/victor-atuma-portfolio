@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     "localhost",
     "*.loca.lt",
     "*.localtunnel.me",
+    "*.trycloudflare.com",
     "*.cursor.sh",
     "*.cursor.com",
   ],
