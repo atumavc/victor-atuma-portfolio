@@ -137,25 +137,22 @@ export function PortraitTracker() {
     <div
       ref={containerRef}
       data-cursor="explore"
-      className="relative mx-auto aspect-[3/4] w-full max-w-[420px] select-none md:max-w-[520px] lg:max-w-[560px]"
-      style={{ perspective: "1200px" }}
+      className="relative mx-auto w-full select-none"
+      style={{ perspective: "1200px", aspectRatio: "3 / 4" }}
       aria-label="Interactive 3D portrait of Victor Atuma"
     >
       <div
         ref={glowRef}
-        className="pointer-events-none absolute inset-[-8%] rounded-[40%] bg-[radial-gradient(circle_at_50%_40%,rgba(255,42,42,0.55),transparent_60%)] blur-2xl transition-opacity"
+        className="pointer-events-none absolute inset-[-8%] rounded-[40%] bg-[radial-gradient(circle_at_50%_40%,rgba(255,42,42,0.55),transparent_60%)] blur-2xl"
         aria-hidden="true"
       />
 
       <div
         ref={frameRef}
-        className="relative h-full w-full will-change-transform"
-        style={{
-          transformStyle: "preserve-3d",
-          transition: reduced ? "none" : undefined,
-        }}
+        className="absolute inset-0 will-change-transform"
+        style={{ transformStyle: "preserve-3d" }}
       >
-        <div className="absolute inset-0 overflow-hidden rounded-[2rem] border border-white/10 bg-[#1a0505] shadow-[0_40px_120px_rgba(0,0,0,0.65)]">
+        <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-white/10 bg-[#1a0505] shadow-[0_40px_120px_rgba(0,0,0,0.65)]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,#ff2a2a_0%,#8b0d0d_45%,#1a0505_100%)]" />
 
           <Image
@@ -168,7 +165,6 @@ export function PortraitTracker() {
             onLoad={() => setLoaded(true)}
           />
 
-          {/* Soft depth veil — does not distort facial features */}
           <div
             className="pointer-events-none absolute inset-0 mix-blend-soft-light"
             style={{
